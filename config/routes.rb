@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "application#hello"
+  resources :toppings
+  resources :pizzas
+  root "pizzas#index"
 end
