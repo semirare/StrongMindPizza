@@ -17,10 +17,16 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pizza" do
     assert_difference("Pizza.count") do
-      post pizzas_url, params: { pizza: { name: @pizza.name } }
+      post pizzas_url, params: { pizza: { name: 'test' } }
     end
 
     assert_redirected_to pizza_url(Pizza.last)
+  end
+
+  test "should not allow duplicate names" do
+    #attempt to post pizza with same name as fixture pizza one that already exists
+    post pizzas_url, params: { pizza: { name: @pizza.name } }
+    assert_response 422
   end
 
   test "should show pizza" do

@@ -15,7 +15,6 @@ class ToppingsTest < ApplicationSystemTestCase
     click_on "New topping"
 
     fill_in "Name", with: @topping.name
-    fill_in "Pizza", with: @topping.pizza_id
     click_on "Create Topping"
 
     assert_text "Topping was successfully created"
@@ -27,7 +26,6 @@ class ToppingsTest < ApplicationSystemTestCase
     click_on "Edit this topping", match: :first
 
     fill_in "Name", with: @topping.name
-    fill_in "Pizza", with: @topping.pizza_id
     click_on "Update Topping"
 
     assert_text "Topping was successfully updated"

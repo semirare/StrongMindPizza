@@ -17,10 +17,16 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create topping" do
     assert_difference("Topping.count") do
-      post toppings_url, params: { topping: { name: @topping.name, pizza_id: @topping.pizza_id } }
+      post toppings_url, params: { topping: { name: 'test' } }
     end
 
     assert_redirected_to topping_url(Topping.last)
+  end
+
+  test "should not allow duplicate names" do
+    #attempt to post topping with same name as fixture topping one that already exists
+    post toppings_url, params: { topping: { name: @topping.name } }
+    assert_response 422
   end
 
   test "should show topping" do
@@ -34,7 +40,7 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update topping" do
-    patch topping_url(@topping), params: { topping: { name: @topping.name, pizza_id: @topping.pizza_id } }
+    patch topping_url(@topping), params: { topping: { name: @topping.name } }
     assert_redirected_to topping_url(@topping)
   end
 
