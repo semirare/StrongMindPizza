@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pizza_topping %>
+
+<div>
+  <%= link_to "Edit this pizza topping", edit_pizza_topping_path(@pizza_topping) %> |
+  <%= link_to "Back to pizza toppings", pizza_toppings_path %>
+
+  <%= button_to "Destroy this pizza topping", @pizza_topping, method: :delete %>
+</div>

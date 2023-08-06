@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/about', to: 'static_page#about'
   get '/pizzas', to: 'pizzas#index'
   get '/toppings', to: 'toppings#index'
+  get '/pizza_toppings', to: 'pizza_toppings#index'
+  resources :pizza_toppings
   resources :toppings
   resources :pizzas
 end
