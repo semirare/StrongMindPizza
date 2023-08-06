@@ -23,6 +23,11 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to topping_url(Topping.last)
   end
 
+  test "should not allow names over 50 chars" do
+    post toppings_url, params: { topping: { name: 'a' * 51 } }
+    assert_response 422
+  end
+
   test "should not allow duplicate names" do
     #attempt to post topping with same name as fixture topping one that already exists
     post toppings_url, params: { topping: { name: @topping.name } }

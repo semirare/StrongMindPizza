@@ -32,6 +32,14 @@ class PizzaToppingsControllerTest < ActionDispatch::IntegrationTest
     assert_response 422
   end
 
+  test "should not allow ids that do not exist" do
+    post pizza_toppings_url, params: { pizza_topping: { pizza_id: @pizza.id, topping_id: 0 } }
+    assert_response 422
+
+    post pizza_toppings_url, params: { pizza_topping: { pizza_id: 0, topping_id: @topping.id } }
+    assert_response 422
+  end
+
   test "should show pizza toppings" do
     get pizza_topping_url(@pizza_topping)
     assert_response :success
