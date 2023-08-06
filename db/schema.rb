@@ -10,21 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_020744) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_06_035930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pizza_toppings", force: :cascade do |t|
+    t.bigint "pizza_id", null: false
+    t.bigint "topping_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pizza_id", "topping_id"], name: "index_pizza_toppings_on_pizza_id_and_topping_id", unique: true
+    t.index ["pizza_id"], name: "index_pizza_toppings_on_pizza_id"
+    t.index ["topping_id"], name: "index_pizza_toppings_on_topping_id"
+  end
 
   create_table "pizzas", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_pizzas_on_name", unique: true
   end
 
   create_table "toppings", force: :cascade do |t|
     t.string "name"
-    t.integer "pizza_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_toppings_on_name", unique: true
   end
 
+  add_foreign_key "pizza_toppings", "pizzas"
+  add_foreign_key "pizza_toppings", "toppings"
 end
