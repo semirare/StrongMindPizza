@@ -65,6 +65,6 @@ class ToppingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topping_params
-      params.require(:topping).permit(:name, :pizza_id)
+      params.require(:topping).permit(:name)
     end
 end
