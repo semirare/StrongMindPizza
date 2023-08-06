@@ -1,5 +1,6 @@
 class Pizza < ApplicationRecord
-    has_many :toppings
-    validates :name, presence: true,
+    has_many :pizza_topping, dependent: :destroy
+    validates :name, length: { maximum: 50 },
+                     presence: true,
                      uniqueness: true
 end
