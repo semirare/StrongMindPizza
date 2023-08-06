@@ -5,5 +5,6 @@ class CreatePizzas < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :pizzas, :name, unique: true
   end
 end
