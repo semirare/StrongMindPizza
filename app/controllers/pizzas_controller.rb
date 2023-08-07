@@ -8,6 +8,8 @@ class PizzasController < ApplicationController
 
   # GET /pizzas/1 or /pizzas/1.json
   def show
+    @pizza = Pizza.find(params[:id])
+    @toppings = PizzaTopping.where(pizza_id: @pizza.id)
   end
 
   # GET /pizzas/new

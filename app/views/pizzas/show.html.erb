@@ -3,8 +3,11 @@
 <%= render @pizza %>
 
 <div>
-  <%= link_to "Edit this pizza", edit_pizza_path(@pizza) %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
-
-  <%= button_to "Destroy this pizza", @pizza, method: :delete %>
+  <div>
+    <%= @pizza.name %>
+  <div>
+  <div>Ingredients:</div>
+  <% topping_names_for(@pizza).each do |topping| %>
+    <div><%= topping%></div>
+  <% end %>
 </div>

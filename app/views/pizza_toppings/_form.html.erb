@@ -12,8 +12,13 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :pizza_id, style: "display: block" %>
+    <%= form.number_field :pizza_id %>
+  </div>
+
+  <div>
+    <%= form.label :topping_id, style: "display: block" %>
+    <%= form.number_field :topping_id %>
   </div>
 
   <div>
