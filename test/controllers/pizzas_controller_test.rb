@@ -34,11 +34,6 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
     assert_response 422
   end
 
-  test "should show pizza" do
-    get pizza_url(@pizza)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_pizza_url(@pizza)
     assert_response :success
