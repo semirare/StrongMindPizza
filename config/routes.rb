@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  root "static_page#home"
-  get '/home', to: 'static_page#home'
-  get '/help', to: 'static_page#help'
+  root "pizzas#index"
   get '/about', to: 'static_page#about'
   get '/pizzas', to: 'pizzas#index'
   get '/toppings', to: 'toppings#index'
-  get '/pizza_toppings', to: 'pizza_toppings#index'
   resources :pizza_toppings
   resources :toppings
   resources :pizzas
