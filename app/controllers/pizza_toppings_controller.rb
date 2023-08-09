@@ -15,7 +15,7 @@ class PizzaToppingsController < ApplicationController
           format.html { redirect_back fallback_location: root_path }
           format.json { render :show, status: :created, location: @pizza_topping }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { redirect_back fallback_location: root_path, status: :unprocessable_entity }
           format.json { render json: @pizza_topping.errors, status: :unprocessable_entity }
         end
       end

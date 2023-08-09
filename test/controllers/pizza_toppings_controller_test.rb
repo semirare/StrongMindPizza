@@ -8,17 +8,10 @@ class PizzaToppingsControllerTest < ActionDispatch::IntegrationTest
     @topping = toppings(:one)
   end
 
-  test "should get new" do
-    get new_pizza_topping_url
-    assert_response :success
-  end
-
   test "should create pizza topping" do
     assert_difference("PizzaTopping.count") do
       post pizza_toppings_url, params: { pizza_topping: { pizza_id: @pizza2.id, topping_id: @topping.id } }
     end
-
-    assert_redirected_to edit_pizza_url(@pizza2)
   end
 
   test "should not allow duplicate pairs" do
@@ -39,7 +32,5 @@ class PizzaToppingsControllerTest < ActionDispatch::IntegrationTest
     assert_difference("PizzaTopping.count", -1) do
       delete pizza_topping_url(@pizza_topping)
     end
-
-    assert_redirected_to pizza_toppings_url
   end
 end

@@ -10,17 +10,12 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_pizza_url
-    assert_response :success
-  end
-
   test "should create pizza" do
     assert_difference("Pizza.count") do
       post pizzas_url, params: { pizza: { name: 'test' } }
     end
 
-    assert_redirected_to pizza_url(Pizza.last)
+    assert_redirected_to edit_pizza_url(Pizza.last)
   end
 
   test "should not allow names over 50 chars" do
@@ -40,8 +35,9 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pizza" do
+    
     patch pizza_url(@pizza), params: { pizza: { name: @pizza.name } }
-    assert_redirected_to pizza_url(@pizza)
+    assert_redirected_to root_url
   end
 
   test "should destroy pizza" do

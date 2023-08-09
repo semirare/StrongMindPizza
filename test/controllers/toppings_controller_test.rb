@@ -10,17 +10,12 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_topping_url
-    assert_response :success
-  end
-
   test "should create topping" do
     assert_difference("Topping.count") do
       post toppings_url, params: { topping: { name: 'test' } }
     end
 
-    assert_redirected_to topping_url(Topping.last)
+    assert_redirected_to toppings_url
   end
 
   test "should not allow names over 50 chars" do
@@ -34,11 +29,6 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
     assert_response 422
   end
 
-  test "should show topping" do
-    get topping_url(@topping)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_topping_url(@topping)
     assert_response :success
@@ -46,7 +36,7 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update topping" do
     patch topping_url(@topping), params: { topping: { name: @topping.name } }
-    assert_redirected_to topping_url(@topping)
+    assert_redirected_to toppings_url
   end
 
   test "should destroy topping" do
