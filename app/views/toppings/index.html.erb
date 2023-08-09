@@ -1,14 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<% provide(:title, "Toppings") %>
 
-<h1>Toppings</h1>
+<div class="container-fluid">
+  <h1>Add New Topping</h1>
+  <%= render "form", topping: Topping.new, new_topping: true %>
 
-<div id="toppings">
-  <% @toppings.each do |topping| %>
-    <%= render topping %>
-    <p>
-      <%= link_to "Show this topping", topping %>
-    </p>
-  <% end %>
+  <br>
+
+  <h1>Topping Menu</h1>
+  <div id="toppings">
+    <ul class="list-group">
+    <% @toppings.order(Arel.sql('lower(name)')).each do |topping| %>
+      <li class="list-group-item">
+        <div class='row'>
+          <div class="col-md-8">
+            <h3><%= topping.name %><h3>
+          </div>
+          <div class="col-md-2 text-right">
+            <%= link_to "Edit", edit_topping_path(topping), class: "btn btn-block btn-primary" %>
+          </div>
+          <div class="col-md-2 text-left">
+            <%= button_to "Delete", topping, method: :delete, class: "btn btn-block btn-danger" %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+    <ul>
+  </div>
 </div>
-
-<%= link_to "New topping", new_topping_path %>

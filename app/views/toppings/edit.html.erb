@@ -1,10 +1,11 @@
-<h1>Editing topping</h1>
+<% provide(:title, "#{@topping.name}") %>
 
-<%= render "form", topping: @topping %>
+<h1>Editing <%= @topping.name %></h1>
+
+<%= render "form", topping: @topping, new_topping: false %>
 
 <br>
 
 <div>
-  <%= link_to "Show this topping", @topping %> |
-  <%= link_to "Back to toppings", toppings_path %>
+  <%= link_to "Back to Topping Menu", toppings_path, class: "btn btn-lg btn-primary" %>
 </div>
