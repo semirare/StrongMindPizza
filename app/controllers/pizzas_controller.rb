@@ -40,10 +40,10 @@ class PizzasController < ApplicationController
   def update
     respond_to do |format|
       if @pizza.update(pizza_params)
-        format.html { redirect_to pizza_url(@pizza)}
+        format.html { redirect_back fallback_location: root_path}
         format.json { render :show, status: :ok, location: @pizza }
       else
-        format.html { redirect_to pizza_url(@pizza), alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
+        format.html { redirect_back fallback_location: root_path, alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
       end
     end

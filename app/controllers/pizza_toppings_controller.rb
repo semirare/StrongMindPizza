@@ -12,7 +12,7 @@ class PizzaToppingsController < ApplicationController
   
       respond_to do |format|
         if @pizza_topping.save
-          format.html { redirect_to edit_pizza_url(pizza_topping_params[:pizza_id]) }
+          format.html { redirect_back fallback_location: root_path }
           format.json { render :show, status: :created, location: @pizza_topping }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -26,7 +26,7 @@ class PizzaToppingsController < ApplicationController
       @pizza_topping.destroy
   
       respond_to do |format|
-        format.html { redirect_to edit_pizza_url(pizza_topping_params[:pizza_id]) }
+        format.html { redirect_back fallback_location: root_path}
         format.json { head :no_content }
       end
     end
