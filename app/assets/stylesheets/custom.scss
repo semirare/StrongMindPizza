@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$golden-orange: #F2A900;
+$golden-orange-darker: #DB9900;
+
 @mixin box_sizing {
     -moz-boz-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -17,6 +20,21 @@
 
 body {
     padding-top: 60px;
+    background-color: $gray-darker;
+}
+
+.list-group-item {
+    background-color: black;
+    border-color: $golden-orange;
+}
+
+.form-control-custom {
+    background-color: $gray-darker;
+    color: $golden-orange;
+}
+
+.custom-container {
+    background-color: black;
 }
 
 section {
@@ -36,6 +54,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1;
+    color: $golden-orange;
 }
 
 h1 {
@@ -51,7 +70,6 @@ h2 {
     margin-bottom: 30px;
     text-align: center;
     font-weight: normal;
-    color: $gray-light;
 }
 
 h4 {
@@ -64,6 +82,43 @@ h5 {
     font-size: 2em;
     letter-spacing: -1px;
     text-align: center;
+}
+
+.custom-container {
+    background-color: black;
+}
+
+.custom-jumbotron {
+    background-color: black;
+}
+
+.panel-primary > .panel-heading {
+    color: $golden-orange;
+    background: black;
+    border-color: black;
+}
+
+.panel-primary > .panel-body {
+    border-color: bold;
+    background: black;
+}
+
+.panel-primary > .panel-footer {
+    background: black;
+    border-color: black;
+}
+
+.panel-primary {
+    border-color: $golden-orange;
+}
+
+.panel:hover {
+    text-decoration: none;
+}
+
+
+.navbar {
+    color: black;
 }
 
 h6 {
@@ -80,7 +135,7 @@ p {
     float: left;
     margin-right: 10px;
     font-size: 1.7em;
-    color: white;
+    color: $golden-orange;
     letter-spacing: -1px;
     padding-top: 9px;
     font-weight: bold;
@@ -111,6 +166,26 @@ footer {
             margin-left: 15px;
         }
     }
+}
+
+.btn-primary {
+    color: black;
+    background: $golden-orange;
+    border-color: $golden-orange;
+}
+
+.btn-primary:hover {
+    color: black;
+    background: $golden-orange-darker;
+    border-color: $golden-orange-darker;
+}
+
+.btn-danger {
+    color: black;
+}
+
+.btn-danger:hover {
+    color: black;
 }
 
 .btn-secondary {
