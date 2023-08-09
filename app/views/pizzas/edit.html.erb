@@ -1,10 +1,11 @@
-<h1>Editing pizza</h1>
+<% provide(:title, "#{@pizza.name}") %>
 
-<%= render "form", pizza: @pizza %>
+<h1>Editing <%= @pizza.name %></h1>
+
+<%= render "edit_pizza", pizza: @pizza %>
 
 <br>
 
 <div>
-  <%= link_to "Show this pizza", @pizza %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
+  <%= link_to "Back to Pizza Menu", pizzas_path, class: "btn btn-lg btn-primary" %>
 </div>

@@ -1,27 +1,14 @@
-<%= form_with(model: pizza_topping) do |form| %>
-  <% if pizza_topping.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pizza_topping.errors.count, "error") %> prohibited this pizza topping from being saved:</h2>
+<%= form_with(model: @pizza_topping, url: pizza_toppings_path)  do |f| %>
+  <%= f.hidden_field "pizza_topping[pizza_id]", value: pizza_id %>
 
-      <ul>
-        <% pizza_topping.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <%= f.collection_select "pizza_topping[topping_id]", new_topping_choices_for(pizza_id), :id, :name, {}, { class: "form-control input-lg" } %>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :pizza_id, style: "display: block" %>
-    <%= form.number_field :pizza_id %>
-  </div>
-
-  <div>
-    <%= form.label :topping_id, style: "display: block" %>
-    <%= form.number_field :topping_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <div class="col-md-2">
+      <%= f.submit "Add", class: "btn btn-block btn-primary" %>
+    </div>
   </div>
 <% end %>

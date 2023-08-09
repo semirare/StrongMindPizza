@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<% provide(:title, "Pizzas") %>
 
-<h1>Pizzas</h1>
+<div class="container-fluid">
+  <h1>Add New Pizza</h1>
+  <%= render "form", pizza: Pizza.new, new_pizza: true %>
 
-<div id="pizzas">
-  <% @pizzas.each do |pizza| %>
-    <%= render pizza %>
-    <p>
-      <%= link_to "Show this pizza", pizza %>
-    </p>
-  <% end %>
+  <br>
+
+  <h1>Pizza Menu</h1>
+  <div class="row">
+    <% @pizzas.order(:name).each do |pizza| %>
+      <div class="col-md-6">
+        <%= render "pizza", pizza: pizza %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New pizza", new_pizza_path %>

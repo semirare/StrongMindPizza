@@ -1,7 +1,22 @@
-<div id="<%= dom_id pizza %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pizza.name %>
-  </p>
-
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h5><%= pizza.name %></h5>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <% toppings_for(pizza).each do |topping| %>
+        <li class="list-group-item"><h4><%= topping["name"] %><h4></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "Edit", edit_pizza_path(pizza), class: "btn btn-primary btn-block" %>
+      </div>
+      <div class="col-md-6">
+        <%= button_to "Delete", pizza, method: :delete, class: "btn btn-danger btn-block" %>
+      </div>
+    </div>
+  </div>
 </div>
