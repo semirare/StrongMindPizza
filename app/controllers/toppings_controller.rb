@@ -6,10 +6,6 @@ class ToppingsController < ApplicationController
     @toppings = Topping.all
   end
 
-  # GET /toppings/1 or /toppings/1.json
-  def show
-  end
-
   # GET /toppings/new
   def new
     @topping = Topping.new
@@ -25,10 +21,10 @@ class ToppingsController < ApplicationController
 
     respond_to do |format|
       if @topping.save
-        format.html { redirect_to topping_url(@topping), notice: "Topping was successfully created." }
+        format.html { redirect_to toppings_url, notice: "#{@topping.name} was created." }
         format.json { render :show, status: :created, location: @topping }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to toppings_url, alert: @topping.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @topping.errors, status: :unprocessable_entity }
       end
     end
@@ -38,10 +34,10 @@ class ToppingsController < ApplicationController
   def update
     respond_to do |format|
       if @topping.update(topping_params)
-        format.html { redirect_to topping_url(@topping), notice: "Topping was successfully updated." }
+        format.html { redirect_to toppings_url, notice: "#{@topping.name} was updated." }
         format.json { render :show, status: :ok, location: @topping }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to toppings_url, alert: @topping.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @topping.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +48,7 @@ class ToppingsController < ApplicationController
     @topping.destroy
 
     respond_to do |format|
-      format.html { redirect_to toppings_url, notice: "Topping was successfully destroyed." }
+      format.html { redirect_to toppings_url, notice: "#{@topping.name} was deleted."}
       format.json { head :no_content }
     end
   end

@@ -27,10 +27,10 @@ class PizzasController < ApplicationController
 
     respond_to do |format|
       if @pizza.save
-        format.html { redirect_to pizza_url(@pizza), notice: "Pizza was successfully created." }
+        format.html { redirect_to edit_pizza_url(@pizza), notice: "#{@pizza.name} was created."}
         format.json { render :show, status: :created, location: @pizza }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to pizzas_url, alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
       end
     end
@@ -40,10 +40,10 @@ class PizzasController < ApplicationController
   def update
     respond_to do |format|
       if @pizza.update(pizza_params)
-        format.html { redirect_to pizza_url(@pizza), notice: "Pizza was successfully updated." }
+        format.html { redirect_to pizza_url(@pizza)}
         format.json { render :show, status: :ok, location: @pizza }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to pizza_url(@pizza), alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
       end
     end
@@ -54,7 +54,7 @@ class PizzasController < ApplicationController
     @pizza.destroy
 
     respond_to do |format|
-      format.html { redirect_to pizzas_url, notice: "Pizza was successfully destroyed." }
+      format.html { redirect_to pizzas_url, notice: "#{@pizza.name} was deleted." }
       format.json { head :no_content }
     end
   end
