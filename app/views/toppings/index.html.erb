@@ -13,13 +13,13 @@
       <div id="toppings">
         <ul class="list-group">
         <% @toppings.order(Arel.sql('lower(name)')).each do |topping| %>
-          <li class="list-group-item list-group-item-custom">
-            <div class='row'>
+          <li class="list-group-item">
+            <div class='row v-align-middle'>
               <div class="col-md-8">
-                <h3><%= topping.name %><h3>
+                <h4><%= topping.name %><h4>
               </div>
               <div class="col-md-2 text-right">
-                <%= link_to "Edit", edit_topping_path(topping), class: "btn btn-block btn-primary" %>
+                <%= link_to "Edit", edit_topping_path(topping), class: "btn btn-block btn-edit" %>
               </div>
               <div class="col-md-2 text-left">
                 <%= button_to "Delete", topping, method: :delete, class: "btn btn-block btn-danger" %>
