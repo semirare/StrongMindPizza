@@ -1,36 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <%= render "form", pizza: pizza, new_pizza: false %>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <h4>Current Toppings</h4>
-          <ul class="list-group">
-            <% toppings_for(pizza).each do |topping| %>
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-md-10">
-                    <h6><%= topping['name'] %></h6>
-                  </div>
-                  <div class="col-md-2">
-                    <%= button_to "Remove", pizza_topping_for(pizza.id, topping['id']), method: :delete, class: "btn btn-block btn-danger" %>
-                  </div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= render "form", pizza: pizza, new_pizza: false %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <h4>Current Toppings</h4>
+        <ul class="list-group">
+          <% toppings_for(pizza).each do |topping| %>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-10">
+                  <h6><%= topping['name'] %></h6>
                 </div>
-              </li>
-            <% end %>
-            <br>
-            <% if new_topping_choices_for(pizza.id).length() > 0 %>
-              <h4>Add Topping</h4>
-              <li class="list-group-item">
-                <%= render "pizza_toppings/form", pizza_id: pizza.id %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+                <div class="col-md-2">
+                  <%= button_to "Remove", pizza_topping_for(pizza.id, topping['id']), method: :delete, class: "btn btn-block btn-danger" %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+          <br>
+          <% if new_topping_choices_for(pizza.id).length() > 0 %>
+            <h4>Add Topping</h4>
+            <li class="list-group-item">
+              <%= render "pizza_toppings/form", pizza_id: pizza.id %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
