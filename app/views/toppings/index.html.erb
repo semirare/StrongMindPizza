@@ -13,7 +13,7 @@
       <div id="toppings">
         <ul class="list-group">
         <% @toppings.order(Arel.sql('lower(name)')).each do |topping| %>
-          <li class="list-group-item">
+          <li class="list-group-item list-group-item-custom">
             <div class='row'>
               <div class="col-md-8">
                 <h3><%= topping.name %><h3>

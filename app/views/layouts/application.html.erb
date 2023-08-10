@@ -14,7 +14,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container-fluid">
-      <div class="center jumbotron custom-jumbotron">
+      <div class="center jumbotron custom-jumbotron" style="background-image: url(<%= 'assets/background.png' %>)">
         <% flash.each do |type, msg| %>
           <div>
             <% if type == "alert" %>

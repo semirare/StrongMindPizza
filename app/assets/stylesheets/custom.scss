@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$golden-orange-lighter: #FFCC57;
 $golden-orange: #F2A900;
 $golden-orange-darker: #DB9900;
 
@@ -20,21 +21,21 @@ $golden-orange-darker: #DB9900;
 
 body {
     padding-top: 60px;
-    background-color: $gray-darker;
+    background-color: $golden-orange;
 }
 
 .list-group-item {
-    background-color: black;
+    background-color: white;
     border-color: $golden-orange;
 }
 
 .form-control-custom {
-    background-color: $gray-darker;
-    color: $golden-orange;
+    background-color: white;
+    color: black;
 }
 
 .custom-container {
-    background-color: black;
+    background-color: white;
 }
 
 section {
@@ -54,7 +55,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1;
-    color: $golden-orange !important;
+    color: black !important;
 }
 
 h1 {
@@ -72,16 +73,26 @@ h2 {
     font-weight: normal;
 }
 
+h3 {
+    font-size: 1.5em;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 h4 {
-    font-size: 1.1em;
+    font-size: 2em;
     text-align: center;
-    font-weight: bold;
 }
 
 h5 {
-    font-size: 2em;
+    font-size: 2.1em;
+    font-weight: bold;
     letter-spacing: -1px;
     text-align: center;
+}
+
+h6 {
+    font-size: 2em;
 }
 
 .custom-container {
@@ -89,27 +100,28 @@ h5 {
 }
 
 .custom-jumbotron {
-    background-color: black;
+    background: url('/assets/background.png') !important;
+    background-size: cover;
 }
 
 .panel-primary > .panel-heading {
     color: $golden-orange;
-    background: black;
-    border-color: black;
+    background: $golden-orange-lighter;
+    border-color: transparent;
 }
 
 .panel-primary > .panel-body {
     border-color: bold;
-    background: black;
+    background: $golden-orange-lighter;
 }
 
 .panel-primary > .panel-footer {
-    background: black;
-    border-color: black;
+    background: $golden-orange-lighter;
+    border-color: $golden-orange-lighter;
 }
 
 .panel-primary {
-    border-color: $golden-orange;
+    border-color: $golden-orange-lighter;
 }
 
 .panel:hover {
@@ -134,26 +146,44 @@ p {
 
 #logo {
     float: left;
-    margin-right: 10px;
+    margin-right: 0px;
     font-size: 1.7em;
     color: $golden-orange;
     letter-spacing: -1px;
-    padding-top: 9px;
+    padding-top: 0%;
     font-weight: bold;
     &:hover {
         text-decoration: none;    
     }
 }
 
+nav {
+    ul {
+        li {
+            a {
+                font-size: 1.5em;
+                color: white !important;
+            }
+        }
+    }
+}
+
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 footer {
     margin-top: 45px;
     padding-top: 5px;
-    border-top: 1px solid $gray-light;
-    color: $gray-light;
+    border-top: 1px solid black;
+    color: black;
     a {
-        color: $gray;
+        color: black;
         &:hover {
-            color: $gray-darker;
+            color: black;
         }
     }
     small {
@@ -170,29 +200,66 @@ footer {
 }
 
 .btn-primary {
-    color: black;
-    background: $golden-orange;
-    border-color: $golden-orange;
+    color: white;
+    background-color: #739DFF;
+    border-color: #739DFF;
+    font-size: 1.3em;
 }
 
 .btn-primary:hover {
-    color: black;
-    background: $golden-orange-darker;
-    border-color: $golden-orange-darker;
+    color: white;
+    border-color: #0049F2;
+    border-color: #0049F2;
+    font-size: 1.3em;
 }
 
 .btn-danger {
-    color: black;
+    color: white;
+    font-size: 1.3em;
 }
 
 .btn-danger:hover {
-    color: black;
+    color: white;
+    font-size: 1.3em;
 }
 
 .btn-secondary {
-    color: black;
+    color: white;
+    background: $golden-orange;
+    border-color: $golden-orange;
+    font-size: 1.3em;
+}
+
+.btn-secondary:hover {
+    color: white;
+    background: $golden-orange-darker;
+    border-color: $golden-orange-darker;
+    font-size: 1.3em;
+}
+
+.btn-custom {
+    color: white;
+    background: #69A600;
+    border-color: #69A600;
+    font-size: 1.3em;
+}
+
+.btn-custom:hover {
+    color: white;
+    background: #395A00;
+    border-color: #395A00;
+    font-size: 1.3em;
 }
 
 .list-group-item {
     word-break: break-all;
+}
+
+.list-group-item-custom {
+    background-color: $golden-orange-lighter;
+}
+
+.v-align-middle {
+    display: flex;
+    align-items: center;
 }
