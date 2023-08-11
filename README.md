@@ -18,8 +18,8 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/yourusername/my-awesome-rails-app.git
-   cd my-awesome-rails-app
+   git clone https://github.com/semirare/StrongMindPizza.git
+   cd StrongMindPizza
    ```
 
 2. Install Ruby gems:
@@ -54,7 +54,7 @@ rails test
 
 ### Deployment
 
-The project is deployed on Heroku here()
+The project is deployed on Heroku here(https://strong-mind-pizza-63c863b9651a.herokuapp.com/)
 
 ### License
 
