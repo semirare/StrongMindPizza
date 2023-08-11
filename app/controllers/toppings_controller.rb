@@ -1,5 +1,5 @@
 class ToppingsController < ApplicationController
-  before_action :set_topping, only: %i[ show edit update destroy ]
+  before_action :set_topping, only: %i[ edit update destroy ]
 
   # GET /toppings or /toppings.json
   def index

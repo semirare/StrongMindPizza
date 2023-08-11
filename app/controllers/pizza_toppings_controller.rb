@@ -1,5 +1,5 @@
 class PizzaToppingsController < ApplicationController
-    before_action :set_pizza_topping, only: %i[ show edit update destroy ]
+    before_action :set_pizza_topping, only: %i[ edit destroy ]
   
     # GET /pizza_toppings/new
     def new
@@ -12,10 +12,10 @@ class PizzaToppingsController < ApplicationController
   
       respond_to do |format|
         if @pizza_topping.save
-          format.html { redirect_back fallback_location: root_path }
+          format.html { redirect_back fallback_location: pizzas_path }
           format.json { render :show, status: :created, location: @pizza_topping }
         else
-          format.html { redirect_back fallback_location: root_path, status: :unprocessable_entity }
+          format.html { redirect_back fallback_location: pizzas_path, status: :unprocessable_entity }
           format.json { render json: @pizza_topping.errors, status: :unprocessable_entity }
         end
       end

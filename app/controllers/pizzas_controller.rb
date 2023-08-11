@@ -1,5 +1,5 @@
 class PizzasController < ApplicationController
-  before_action :set_pizza, only: %i[ show edit update destroy ]
+  before_action :set_pizza, only: %i[ edit update destroy ]
 
   # GET /pizzas or /pizzas.json
   def index
@@ -7,10 +7,10 @@ class PizzasController < ApplicationController
   end
 
   # GET /pizzas/1 or /pizzas/1.json
-  def show
-    @pizza = Pizza.find(params[:id])
-    @toppings = PizzaTopping.where(pizza_id: @pizza.id)
-  end
+  #def show
+  #  @pizza = Pizza.find(params[:id])
+  #  @toppings = PizzaTopping.where(pizza_id: @pizza.id)
+  #end
 
   # GET /pizzas/new
   def new
@@ -28,7 +28,7 @@ class PizzasController < ApplicationController
     respond_to do |format|
       if @pizza.save
         format.html { redirect_to edit_pizza_url(@pizza), notice: "#{@pizza.name} was created."}
-        format.json { render :show, status: :created, location: @pizza }
+        format.json { render :edit, status: :created, location: @pizza }
       else
         format.html { redirect_to pizzas_url, alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
@@ -40,10 +40,10 @@ class PizzasController < ApplicationController
   def update
     respond_to do |format|
       if @pizza.update(pizza_params)
-        format.html { redirect_back fallback_location: root_path}
-        format.json { render :show, status: :ok, location: @pizza }
+        format.html { redirect_back fallback_location: pizzas_path}
+        format.json { render :edit, status: :ok, location: @pizza }
       else
-        format.html { redirect_back fallback_location: root_path, alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
+        format.html { redirect_back fallback_location: pizzas_path, alert: @pizza.errors.full_messages.to_sentence, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
       end
     end

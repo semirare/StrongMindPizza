@@ -11,9 +11,9 @@ gem "importmap-rails", "1.1.0"
 gem "turbo-rails",     "1.1.1"
 gem "stimulus-rails",  "1.0.4"
 gem "jbuilder",        "2.11.5"
-gem "puma",            "5.6.4"
 gem "pg",              "1.3.5"
 gem "bootsnap",        "1.12.0", require: false
+gem "puma"
 
 group :development, :test do
   gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
@@ -23,19 +23,11 @@ group :development do
   gem "web-console", "4.2.0"
 end
 
-group :production do
-  gem "rails_12factor"
-end
-
 group :test do
-  gem "capybara",           "3.37.1"
-  gem "selenium-webdriver", "4.2.0"
-  gem "webdrivers",         "5.0.0"
-  gem "rails-controller-testing", "1.0.5"
-  gem "minitest",                 "5.15.0"
-  gem "minitest-reporters",       "1.5.0"
-  gem "guard",                    "2.18.0"
-  gem "guard-minitest",           "2.4.6"
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem.
