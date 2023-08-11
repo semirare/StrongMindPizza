@@ -7,35 +7,52 @@ class PizzasTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit pizzas_url
-    assert_selector "h1", text: "Pizzas"
+    assert_selector "h1", text: "Create New Pizza"
+    assert_selector "h1", text: "Pizza Menu"
   end
 
   test "should create pizza" do
     visit pizzas_url
-    click_on "New pizza"
 
-    fill_in "Name", with: @pizza.name
+    fill_in "Name", with: "Test"
     click_on "Create Pizza"
 
-    assert_text "Pizza was successfully created"
-    click_on "Back"
+    assert_text "Test was created."
   end
 
-  test "should update Pizza" do
-    visit pizza_url(@pizza)
-    click_on "Edit this pizza", match: :first
+  test "should open pizza edit page" do
+    visit pizzas_url
 
-    fill_in "Name", with: @pizza.name
-    click_on "Update Pizza"
+    click_on "Edit", match: :first
 
-    assert_text "Pizza was successfully updated"
-    click_on "Back"
+    assert_selector "h1", text: "Editing #{@pizza.name}"
+    click_on "Back to Pizza Menu"
   end
 
-  test "should destroy Pizza" do
-    visit pizza_url(@pizza)
-    click_on "Destroy this pizza", match: :first
+  test "should update pizza name" do
+    visit edit_pizza_url(@pizza)
 
-    assert_text "Pizza was successfully destroyed"
+    fill_in "Name", with: "Test2"
+    click_on "Update Pizza Name"
+
+    assert_selector "h1", text: "Editing Test2"
+    click_on "Back to Pizza Menu"
+  end
+
+  test "should remove topping" do
+    visit edit_pizza_url(@pizza)
+
+    assert_selector "h6", text: "Ham"
+    click_on "Remove", match: :first
+    assert_no_selector "h6", text: "Ham" 
+
+    click_on "Back to Pizza Menu"
+  end
+
+  test "should delete pizza" do
+    visit pizzas_url
+    click_on "Delete", match: :first
+
+    assert_text "#{@pizza.name} was deleted."
   end
 end
