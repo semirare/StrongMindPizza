@@ -9,14 +9,14 @@
       <div class="panel-body">
         <h4>Current Toppings</h4>
         <ul class="list-group">
-          <% toppings_for(pizza).each do |topping| %>
+          <% pizza.pizza_toppings.each do |pt| %>
             <li class="list-group-item">
               <div class="row">
                 <div class="col-md-10">
-                  <h6><%= topping['name'] %></h6>
+                  <h6><%= pt.topping.name %></h6>
                 </div>
                 <div class="col-md-2">
-                  <%= button_to "Remove", pizza_topping_for(pizza.id, topping['id']), method: :delete, class: "btn btn-block btn-danger" %>
+                  <%= button_to "Remove", pt, method: :delete, class: "btn btn-block btn-danger" %>
                 </div>
               </div>
             </li>

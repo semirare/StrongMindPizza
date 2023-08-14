@@ -4,8 +4,8 @@
   </div>
   <div class="panel-body">
     <ul class="list-group">
-      <% toppings_for(pizza).each do |topping| %>
-        <li class="list-group-item"><h4><%= topping["name"] %><h4></li>
+      <% pizza.pizza_toppings.each do |pt| %>
+        <li class="list-group-item"><h4><%= pt.topping.name %><h4></li>
       <% end %>
     </ul>
   </div>
