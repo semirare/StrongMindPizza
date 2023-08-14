@@ -1,7 +1,6 @@
-```markdown
-# StrongPizza
 
-Welcome to **StrongPizza**, a web application built using Ruby on Rails 7 and Ruby 3, with PostgreSQL as the database.
+# StrongPizza
+Welcome to **StrongPizza**, a web application to help you build and manage delicious pizzas and toppings.  Built using Ruby on Rails 7 and Ruby 3 with PostgreSQL as the database.
 
 ## Getting Started
 
@@ -48,9 +47,21 @@ These instructions will help you set up and run the project on your local machin
 
 You can run tests using the following command:
 
-```shell
-rails test
-```
+   ```shell
+   rails test
+   ```
+
+Note that this will not run the system tests. System tests can be run with:
+
+   ```shell
+   rails test:system
+   ```
+
+or the full suite can be run with
+
+   ```shell
+   rails test && rails test:system
+   ```
 
 ### Deployment
 
