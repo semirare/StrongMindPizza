@@ -33,6 +33,15 @@ These instructions will help you set up and run the project on your local machin
    rails db:setup
    ```
 
+   Please be aware that you will need to be using a psql user with superuser permissions. If you need to create one, the following can be 
+   run.
+
+   ```shell
+   sudo -u postgres createuser --interactive
+   ```
+   
+   Select y when asked to give superuser permissions.
+
 ### Usage
 
 1. Start the Rails server:
