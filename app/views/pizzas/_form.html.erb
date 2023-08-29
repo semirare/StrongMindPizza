@@ -1,12 +1,12 @@
 <%= form_with(model: pizza) do |form| %>
   <div class="row v-align-middle">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <h3><%= form.label :name, "Name:", { class: "form-label form-label-lg"} %></h3>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <%= form.text_field :name, { class: "form-control form-control-lg form-control-custom",  maxlength: 50, } %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <% if new_pizza %>
         <%= form.submit "Create Pizza", class: "btn btn-block btn-primary" %>
       <% else %>
